@@ -28,10 +28,10 @@ public class OpenChromeBrowserTest {
 
     }
 
-    @Test
+   /* @Test
     public void openMail(){
 
-    }
+    }*/
 
     public void changeLanguage(){
 
