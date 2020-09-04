@@ -15,6 +15,7 @@ public class OpenChromeBrowserTest {
     public void setUp(){
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        wd.manage().window().maximize();
         wd.navigate().to("https://www.google.com/");
 
     }
@@ -24,23 +25,23 @@ public class OpenChromeBrowserTest {
         System.out.println("Google.com opened");
         wd.findElement(By.name("q")).click();
         wd.findElement(By.name("q")).clear();
-        wd.findElement(By.name("q")).sendKeys("Selenium WebDriver");
+        wd.findElement(By.name("q")).sendKeys("Selenium WebDriver"+ Keys.ENTER);
+        wd.findElement(By.cssSelector("[href='/login']")).click();
 
     }
 
-   /* @Test
-    public void openMail(){
-
-    }*/
+    @Test
+    public void clickOnAvatar(){
+      //  wd.findElement(By.id("gb_70")).click();
+    }
 
     public void changeLanguage(){
 
      }
 
    // @AfterMethod(enabled = false)
-
     //stop
-    @AfterClass
+    @AfterClass(enabled = false)
     public void tearDown(){
         wd.quit();
     }
